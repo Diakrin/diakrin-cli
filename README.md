@@ -36,4 +36,4 @@ With `cosign` installed, the installer runs this check automatically. Set `DIAKR
 
 ## Licence and security
 
-The CLI is licensed under [LICENSE](LICENSE). Report security issues to security@diakrin.com.
+The CLI is licensed under [LICENSE](LICENSE). Report security issues to contact@diakrin.com.
