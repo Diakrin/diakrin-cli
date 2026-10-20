@@ -1,0 +1,43 @@
+Diakrin CLI License
+
+Copyright (c) 2026 Diakrin. All rights reserved.
+
+The Diakrin command-line interface, its documentation and any updates (the
+"Software") are licensed, not sold. The Software is made available for public
+download, but it is not open source.
+
+1. License. Subject to these terms, Diakrin grants you a limited, non-exclusive,
+   non-transferable, revocable license to install and use the Software solely to
+   access and use Diakrin services that you or your organization are authorized
+   to use under a written agreement with Diakrin or the Terms of Use at
+   https://diakrin.com/terms (the "Agreement").
+
+2. Restrictions. You may not: (a) modify, translate or create derivative works
+   of the Software; (b) decompile, disassemble or reverse engineer the Software,
+   except to the extent applicable law expressly permits it despite this
+   restriction; (c) sell, rent, lease, sublicense or redistribute the Software,
+   except that your organization may host unmodified copies internally for its
+   own users; (d) remove or alter any proprietary notices; or (e) use the
+   Software to build a competing product or service.
+
+3. Third-party components. The Software includes third-party components (such
+   as the Node.js runtime) that are licensed under their own terms. Those terms
+   are listed in THIRD_PARTY_NOTICES and govern those components.
+
+4. Ownership. Diakrin and its licensors retain all rights, title and interest
+   in the Software. No rights are granted except as expressly stated here.
+
+5. Termination. This license ends automatically if you breach it or when your
+   right to use Diakrin services ends. On termination you must stop using and
+   delete the Software.
+
+6. Disclaimer. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+   A PARTICULAR PURPOSE AND NON-INFRINGEMENT, EXCEPT AS THE AGREEMENT PROVIDES.
+
+7. Limitation of liability. TO THE MAXIMUM EXTENT PERMITTED BY LAW, DIAKRIN
+   WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR
+   PUNITIVE DAMAGES ARISING FROM THE SOFTWARE, EXCEPT AS THE AGREEMENT PROVIDES.
+
+8. Agreement controls. If these terms conflict with the Agreement, the
+   Agreement controls.
