@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "timeout": 30,
+            "statusMessage": "Setting up Diakrin",
+            "command": "sh \"${PLUGIN_ROOT}/engine/install.sh\" --pin-file \"${PLUGIN_ROOT}/engine/engine.env\" --if-needed --background --context codex"
+          }
+        ]
+      }
+    ]
+  }
+}

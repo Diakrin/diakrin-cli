@@ -1,0 +1,16 @@
+{
+  "name": "diakrin",
+  "owner": {
+    "name": "Diakrin",
+    "url": "https://diakrin.com"
+  },
+  "description": "Diakrin: describe a business app; your AI tool builds it on Diakrin.",
+  "plugins": [
+    {
+      "name": "diakrin",
+      "source": "./claude/diakrin",
+      "description": "Describe any business app; your agent builds it on Diakrin and gets you a working Preview.",
+      "category": "productivity"
+    }
+  ]
+}

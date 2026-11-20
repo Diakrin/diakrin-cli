@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "diakrin",
+  "version": "0.7.0",
+  "license": "Apache-2.0",
+  "description": "Describe any business app; your agent builds it on Diakrin and gets you a working Preview.",
+  "author": {
+    "name": "Diakrin",
+    "url": "https://diakrin.com"
+  },
+  "homepage": "https://diakrin.com",
+  "keywords": [
+    "diakrin",
+    "apps",
+    "internal-tools",
+    "builder"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Diakrin",
+        "shortDescription": "Describe an app. Get a working Preview.",
+        "longDescription": "Describe any business app in your own words. Diakrin saves it, your agent builds it on the company-approved web app template, and you get a working Preview in your company cloud. You can change only your own apps; IT keeps infrastructure, policy and approvals.",
+        "developerName": "Diakrin",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://diakrin.com",
+        "privacyPolicyURL": "https://diakrin.com/privacy",
+        "termsOfServiceURL": "https://diakrin.com/terms",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png",
+        "composerIcon": "./assets/composer-icon.png",
+        "composerIconDark": "./assets/composer-icon-dark.png",
+        "brandColor": "#171717",
+        "brandColorDark": "#CCF79C",
+        "defaultPrompt": [
+          "Use Diakrin to create an app that tracks my team's tasks.",
+          "Continue my Diakrin app from this link.",
+          "Share my Diakrin app with my team."
+        ]
+      }
+    }
+  }
+}

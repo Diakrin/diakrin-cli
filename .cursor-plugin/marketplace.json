@@ -1,0 +1,12 @@
+{
+  "name": "diakrin",
+  "owner": {
+    "name": "Diakrin"
+  },
+  "plugins": [
+    {
+      "name": "diakrin",
+      "source": "cursor/diakrin"
+    }
+  ]
+}

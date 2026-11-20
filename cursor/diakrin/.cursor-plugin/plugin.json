@@ -1,0 +1,18 @@
+{
+  "name": "diakrin",
+  "version": "0.7.0",
+  "description": "Describe any business app; your agent builds it on Diakrin and gets you a working Preview.",
+  "author": {
+    "name": "Diakrin"
+  },
+  "homepage": "https://diakrin.com",
+  "license": "Apache-2.0",
+  "keywords": [
+    "diakrin",
+    "apps",
+    "internal-tools",
+    "builder"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}

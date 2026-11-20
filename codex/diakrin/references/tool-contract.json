@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "1",
+  "compatibility": {
+    "intentResponseSchemaVersion": "1",
+    "builderContractSchemaVersion": "1",
+    "contractsPackage": "@diakrin/contracts@0.1.0",
+    "projectSchemaVersion": "1",
+    "mcpServer": "diakrin@0.3.0",
+    "codexCliTestTarget": "0.155.0",
+    "customerManagement": "agentless-controller",
+    "newPermanentManagementWorkerRequests": "retired",
+    "hrTemplateVersion": "0.3.0",
+    "awsRuntimeModuleVersion": "1.1.0",
+    "runtimeAcceptance": "synthetic-code-contract-only",
+    "agentPluginsSchema": "1.0.0",
+    "universalTemplate": "web-app@1.0.0",
+    "builderProfile": "apps/api/src/mcp-builder-profile.ts",
+    "applicationEnvironments": [
+      "preview",
+      "production"
+    ]
+  },
+  "tools": [
+    "platform.context",
+    "project.create",
+    "project.list",
+    "project.get",
+    "project.update",
+    "capability.list",
+    "diagnostics.read"
+  ],
+  "optionalTools": [
+    {
+      "name": "catalog.list",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "current-organization-membership-and-project-read"
+    },
+    {
+      "name": "intent.start",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "intent.write"
+    },
+    {
+      "name": "intent.get",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "intent.read"
+    },
+    {
+      "name": "intent.answer",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "intent.write"
+    },
+    {
+      "name": "app.start",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.create-or-existing-plan.create"
+    },
+    {
+      "name": "app.get",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.read"
+    },
+    {
+      "name": "app.update",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "plan.create"
+    },
+    {
+      "name": "app.request-owner",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "server-derived-scoped-escalation"
+    },
+    {
+      "name": "builder.context",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.read"
+    },
+    {
+      "name": "app.blueprint.save",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "plan.create"
+    },
+    {
+      "name": "app.contract",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.read"
+    },
+    {
+      "name": "app.resources.get",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.read"
+    },
+    {
+      "name": "app.secret.request",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-ownership-or-secret.admin"
+    },
+    {
+      "name": "app.secret.remove",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-ownership-or-secret.admin"
+    },
+    {
+      "name": "build.start",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "plan.create"
+    },
+    {
+      "name": "build.get",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.read"
+    },
+    {
+      "name": "plan.preview",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "plan.create"
+    },
+    {
+      "name": "plan.get",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.read"
+    },
+    {
+      "name": "deployment.start",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app.deploy"
+    },
+    {
+      "name": "deployment.get",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.read"
+    },
+    {
+      "name": "app.lifecycle",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app.deploy",
+      "actionCapabilities": {
+        "retire": "app.retire",
+        "upgrade": "pool.manage"
+      }
+    },
+    {
+      "name": "app.draft.create",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "organization-membership-draft-create"
+    },
+    {
+      "name": "app.draft.get",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "draft-read"
+    },
+    {
+      "name": "app.draft.list",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "draft-read"
+    },
+    {
+      "name": "app.draft.update",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "draft-creator"
+    },
+    {
+      "name": "app.prepare",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "draft-creator-and-project.create-or-plan.create"
+    },
+    {
+      "name": "app.list",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-management-connection"
+    },
+    {
+      "name": "app.read",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-management-connection"
+    },
+    {
+      "name": "app.access",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-management-connection"
+    },
+    {
+      "name": "app.create",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-management-connection"
+    },
+    {
+      "name": "app.edit",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-management-connection-and-app-ownership"
+    },
+    {
+      "name": "deployment.preview",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "builder-workflow-and-app-audience"
+    },
+    {
+      "name": "integration.catalog",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "integration.read"
+    },
+    {
+      "name": "integration.connections",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "integration.read"
+    },
+    {
+      "name": "integration.request-status",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "integration.read"
+    },
+    {
+      "name": "integration.request-access",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "integration.request-and-app-ownership"
+    },
+    {
+      "name": "integration.request-connection",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "integration.request"
+    },
+    {
+      "name": "app.source.read",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-code-github-hosting"
+    },
+    {
+      "name": "app.version.save",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-code-github-hosting"
+    },
+    {
+      "name": "app.code.transfer",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-code-github-hosting"
+    },
+    {
+      "name": "app.version.get",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-code-github-hosting"
+    },
+    {
+      "name": "app.status",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "app-ownership-and-project.read"
+    }
+  ],
+  "stopBlockers": {
+    "SPECIFICATION_CHANGED": {
+      "mode": "read-only",
+      "sessionState": "blocked",
+      "questions": [],
+      "nextActions": [],
+      "preserve": [
+        "sessionId",
+        "organizationId",
+        "projectId",
+        "environmentId",
+        "answers",
+        "revision",
+        "specRevision",
+        "templateId",
+        "templateVersion",
+        "templateDigest"
+      ],
+      "automaticMutations": [],
+      "requires": "specification-review"
+    },
+    "TEMPLATE_CHANGED": {
+      "mode": "read-only",
+      "sessionState": "blocked",
+      "questions": [],
+      "nextActions": [],
+      "preserve": [
+        "sessionId",
+        "organizationId",
+        "projectId",
+        "environmentId",
+        "answers",
+        "revision",
+        "specRevision",
+        "templateId",
+        "templateVersion",
+        "templateDigest"
+      ],
+      "automaticMutations": [],
+      "requires": "template-and-specification-review"
+    }
+  },
+  "workflows": {
+    "diakrin": {
+      "tools": [
+        "platform.context"
+      ],
+      "optionalTools": [
+        "app.draft.create",
+        "app.draft.get",
+        "app.draft.list",
+        "app.draft.update",
+        "app.prepare",
+        "app.list",
+        "app.read",
+        "app.access",
+        "app.request-owner",
+        "builder.context",
+        "app.contract",
+        "app.resources.get",
+        "app.secret.request",
+        "app.secret.remove",
+        "build.start",
+        "build.get",
+        "plan.preview",
+        "plan.get",
+        "deployment.start",
+        "deployment.get",
+        "deployment.preview",
+        "app.lifecycle",
+        "diagnostics.read",
+        "integration.catalog",
+        "integration.connections",
+        "integration.request-access",
+        "integration.request-connection",
+        "integration.request-status",
+        "app.source.read",
+        "app.version.save",
+        "app.version.get",
+        "app.code.transfer",
+        "app.status"
+      ],
+      "legacyTools": [
+        "app.start",
+        "app.get",
+        "app.update",
+        "app.create",
+        "app.edit",
+        "app.blueprint.save",
+        "project.list",
+        "project.get",
+        "project.update",
+        "capability.list",
+        "intent.start",
+        "intent.get",
+        "intent.answer"
+      ],
+      "legacyReference": "legacy-tools.md",
+      "stopBlockers": [
+        "SPECIFICATION_CHANGED",
+        "TEMPLATE_CHANGED"
+      ],
+      "blockedActions": [
+        "technical questions or identifiers requested from the employee",
+        "repository or GitHub details requested from the employee",
+        "real records, secrets or tokens in source, fixtures or chat",
+        "hosted acceptance inferred from local code",
+        "URL reported without deployment.preview or verified deployment.get evidence",
+        "self-approval, invented prices, approvals or URLs",
+        "Preview approval used for Production; Preview data copied to Production",
+        "changes to apps the employee does not own; copying an app to bypass ownership",
+        "new draft or app created to bypass a missing or denied one",
+        "rewriting or reversing applied migrations",
+        "mutations as probes; unrequested repair",
+        "direct cloud, GitHub or data-provider bypass",
+        "auto-approved company data access"
+      ]
+    }
+  }
+}

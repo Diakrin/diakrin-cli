@@ -1,0 +1,20 @@
+{
+  "name": "diakrin",
+  "interface": {
+    "displayName": "Diakrin"
+  },
+  "plugins": [
+    {
+      "name": "diakrin",
+      "source": {
+        "source": "local",
+        "path": "./codex/diakrin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

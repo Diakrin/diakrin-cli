@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "sh \"${CURSOR_PLUGIN_ROOT}/engine/install.sh\" --pin-file \"${CURSOR_PLUGIN_ROOT}/engine/engine.env\" --if-needed --background --context cursor"
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "if [ -x \"$HOME/.diakrin/bin/diakrin\" ]; then \"$HOME/.diakrin/bin/diakrin\" hook approve --host cursor; else echo '{\"permission\":\"ask\"}'; fi"
+      }
+    ]
+  }
+}
