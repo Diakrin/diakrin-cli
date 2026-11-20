@@ -1,7 +1,7 @@
 {
   "name": "diakrin",
   "displayName": "Diakrin",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "license": "Apache-2.0",
   "description": "Describe any business app; your agent builds it on Diakrin and gets you a working Preview.",
   "author": {
@@ -9,10 +9,24 @@
     "url": "https://diakrin.com"
   },
   "homepage": "https://diakrin.com",
+  "repository": "https://github.com/Diakrin/diakrin-cli",
   "keywords": [
     "diakrin",
     "apps",
     "internal-tools",
     "builder"
-  ]
+  ],
+  "icon": "./assets/logo.png",
+  "documentationUrl": "https://diakrin.com/docs/connect-claude",
+  "privacyPolicyUrl": "https://diakrin.com/privacy",
+  "termsOfServiceUrl": "https://diakrin.com/terms",
+  "network": {
+    "hosts": [
+      "api.diakrin.com",
+      "github.com",
+      "release-assets.githubusercontent.com",
+      "objects.githubusercontent.com",
+      "registry.npmjs.org"
+    ]
+  }
 }

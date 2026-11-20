@@ -7,7 +7,7 @@
           {
             "type": "command",
             "timeout": 30,
-            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/engine/install.sh\" --pin-file \"${CLAUDE_PLUGIN_ROOT}/engine/engine.env\" --if-needed --background --context claude-code --claude-env-file \"${CLAUDE_ENV_FILE:-}\""
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/engine/install.sh\" --pin-file \"${CLAUDE_PLUGIN_ROOT}/engine/engine.env\" --if-needed --background --context claude-code"
           }
         ]
       }
@@ -19,7 +19,7 @@
           {
             "type": "command",
             "timeout": 10,
-            "command": "[ -x \"$HOME/.diakrin/bin/diakrin\" ] && \"$HOME/.diakrin/bin/diakrin\" hook approve --host claude-code || true"
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/engine/claude-code-approve.sh\""
           }
         ]
       }
