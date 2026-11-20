@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "diakrin": {
+      "type": "http",
+      "url": "https://api.diakrin.com/mcp"
+    }
+  }
+}
