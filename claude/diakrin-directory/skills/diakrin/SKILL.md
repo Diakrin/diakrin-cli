@@ -81,6 +81,9 @@ to ask before using it and nothing else to install.
   The folder is `data.folder` (`./<name in plain words>` in this session's folder).
 - **Run:** `~/.diakrin/bin/diakrin dev start --dir <folder> --open --json`, then give the employee `data.url`. Run it again
   after changes; `dev logs --dir <folder> --json` when it breaks; `dev stop --dir <folder> --json` when they are done.
+  The start result is the check: `ok` means the app is up. Don't `curl` or open the link yourself; that is one more prompt.
+- **Tell the employee the outcome in plain words:** the link and what to try. Leave out folder names, file names and
+  engine words (`pull`, `dev start`, `check`, `save`).
 - **Check:** `~/.diakrin/bin/diakrin check --dir <folder> --json` (contract rules, typecheck, tests, render check).
 - **Save:** `app.code.transfer` with `purpose: "save"`, then its `command` with `--dir <folder> --message "<what changed>" --json`.
 - A transfer works once, for 5 minutes. `TRANSFER_INVALID`: get a new one. `TRANSFERS_UNAVAILABLE` (an older Diakrin) or
