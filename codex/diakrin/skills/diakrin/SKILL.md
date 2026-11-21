@@ -139,7 +139,7 @@ log, look at a plan, pick a cloud, copy an identifier or run a command.
   rather than open prompts (see _Starting from an idea_). Ask one at a time.
 - **Never ask for an identifier.** Not a company id, app id, draft id, project, environment,
   pool, repository, commit, template or budget. Every identifier comes from a tool result
-  (`platform.context`, `app.draft.get`, `app.read`, `builder.context`, `app.contract`); if none
+  (`platform.context`, `workspace.list`, `app.draft.get`, `app.read`, `builder.context`, `app.contract`); if none
   carries it, the employee cannot supply it either; report the gap instead.
 - **Give the console link rather than ids.** Draft results carry a `suggestedSummary` in plain words; use it when it fits. The
   console link has the form `/apps/drafts/{draftId}?organization={organizationId}` on the company's
@@ -161,9 +161,20 @@ an optional `idempotencyKey` (a repeated call is safe without one). Seconds, not
 records their words with `provenance: "user"` so you never re-ask them. If `platform.context`
 returns several companies, the one question allowed before saving is "Which company is this for?"
 
+**The workspace decides where the app runs.** Before saving, call `workspace.list` for that company. Each
+workspace has its own cloud setup and its own rules, and the employee may build in one or several:
+- **One workspace:** use it; there is nothing to ask.
+- **Several:** ask once, in plain words, which team the app is for, and name the default as the usual
+  choice ("Is this for Sales or for everyone (Acme-workspace)?"). Skip it when the employee already said.
+- **None:** save without one; prepare explains what IT must do.
+Pass the chosen workspace's `id` as `workspaceId` to `app.draft.create`. Draft, prepare and `app.read` results carry
+`workspace` (its name and cloud); you may tell the employee once where the app will run ("It will run in Sales, on
+AWS Production"). Never ask for a workspace id.
+
 Then ground, together:
 
 1. `platform.context`: who the employee is and which company they belong to.
+   `workspace.list`: where they can build (see above).
 2. `app.draft.list`: what they already have. An earlier draft for the same idea is continued,
    not duplicated; a similar live app is worth mentioning ("you already have a request tracker;
    want this to be a separate app?").
@@ -296,14 +307,15 @@ The universal template is a web page, a JSON API, a Postgres database and compan
 it runs identically on AWS and GCP. Almost any business app (trackers, approvals, forms,
 requests, inventories, dashboards, directories, schedules) is built here. There is no technology
 choice to make.
-**Do not ask about technology, templates, clouds, environments, projects, repositories or budgets.**
+**Do not ask about technology, templates, clouds, environments, projects, repositories or budgets.** The workspace
+question above is about the team, not the cloud.
 The template ships with an "items" example (overview, filterable table, my items) built on the
 Diakrin kit, which you replace. Read its `AGENTS.md` before the first edit; it is short and it is the contract for
 the files below.
 
-With apps private without sign-in (`journey.starter` is `synthetic-web`) the app is the private synthetic workspace: the
+With apps private without sign-in (`journey.starter` is `synthetic-web`) the app is the private synthetic example app: the
 template owns `src/**`, there is no local run (`LOCAL_UNAVAILABLE`) and the employee sees a fixed screen with example
-data. Save it and get the Preview; do not design screens. Say: "Your company's first apps use a fixed example workspace;
+data. Save it and get the Preview; do not design screens. Say: "Your company's first apps use a fixed example app;
 I'll get you its private preview."
 
 **What you change:**
@@ -631,6 +643,10 @@ Blocker codes you will see, with the server's own message and owner:
 | `APPROVAL_REQUIRED`                | it         | Waiting for IT to approve this app.                                                  |
 | `PROJECT_REJECTED`                 | it         | IT declined this app request.                                                        |
 | `PROJECT_POLICY_CONTEXT_REQUIRED`  | it         | Waiting for IT to publish the app policy.                                            |
+| `WORKSPACE_NOT_ALLOWED`            | employee   | You can't create apps in that workspace. Pick another one, or ask its admin to add you. |
+| `WORKSPACE_SETUP_REQUIRED`         | it         | This workspace has no cloud setup yet. IT picks one on the workspace page.           |
+| `WORKSPACE_SETUP_MISMATCH`         | it         | This app's workspace uses another cloud setup. IT can move the app or change the setup. |
+| `WORKSPACE_OWNER_NOT_MEMBER`       | it         | The app's owner isn't in that workspace. IT adds them first, then moves the app.     |
 | `UNAVAILABLE`                      | it         | No app template is available for your company yet.                                  |
 | `CAPABILITY_ACCESS_REQUIRED`       | it         | The company app policy does not yet allow web apps with a database. IT can allow it. |
 | `SETUP_REQUIRED`                   | it         | Your company has not connected a cloud setup for apps yet.                           |

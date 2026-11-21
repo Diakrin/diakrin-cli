@@ -79,6 +79,12 @@
       "requiredServerCapability": "server-derived-scoped-escalation"
     },
     {
+      "name": "workspace.list",
+      "version": "1",
+      "registration": "optional",
+      "requiredServerCapability": "project.list"
+    },
+    {
       "name": "builder.context",
       "version": "1",
       "registration": "optional",
@@ -335,6 +341,7 @@
         "platform.context"
       ],
       "optionalTools": [
+        "workspace.list",
         "app.draft.create",
         "app.draft.get",
         "app.draft.list",
