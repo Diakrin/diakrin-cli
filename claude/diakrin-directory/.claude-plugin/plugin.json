@@ -1,7 +1,7 @@
 {
   "name": "diakrin",
   "displayName": "Diakrin",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "license": "Apache-2.0",
   "description": "Describe any business app; your agent builds it on Diakrin and gets you a working Preview.",
   "author": {

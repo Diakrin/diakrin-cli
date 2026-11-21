@@ -48,7 +48,7 @@ If a Diakrin tool answers that it needs sign-in (or no Diakrin tools are listed 
 and wait:
 
 - **Claude Code:** "Type `/mcp`, choose diakrin and approve the Diakrin page that opens; then say continue."
-- **Codex:** "Approve the Diakrin sign-in page Codex opened (or run the Diakrin plugin's sign-in in Codex); then say continue."
+- **Codex:** "Open **Plugins** in Codex, choose Diakrin and select **Connect Diakrin**, then approve the Diakrin page in your browser. Then start a new chat and ask again: this chat won't see the sign-in." Say it the same way if the employee already approved and the tools still ask for sign-in. In the Codex terminal app, the sign-in is `codex mcp login diakrin`, then a new session.
 - **Cursor:** "Open Cursor's MCP settings, choose Diakrin, select Connect and approve the page that opens; then say continue."
 
 Servers without the draft tools: [references/legacy-tools.md](../../references/legacy-tools.md), only when `app.draft.*` is
