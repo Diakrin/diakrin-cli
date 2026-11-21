@@ -164,6 +164,18 @@ engine_current() {
   [ "${current%%.*}" = "$pin_major" ] || return 1
   version_ge "$current" "$pin_version"
 }
+# An older engine of the pinned major still works: the agent uses it while the pinned version installs in the background,
+# so a plugin update never makes the agent wait on (and prompt for) the installer.
+engine_usable() {
+  [ -n "$pin_version" ] || return 1
+  text="$(cat "$launcher" 2>/dev/null)" || return 1
+  case "$text" in *"$LAUNCHER_MARKER"*) ;; *) return 1 ;; esac
+  dest_dir="$(printf '%s\n' "$text" | sed -n 's/^exec "\(.*\)\/bin\/diakrin" "\$@"$/\1/p')"
+  [ -x "$dest_dir/bin/diakrin" ] || return 1
+  current="$(basename "$dest_dir")"
+  is_version "$current" || return 1
+  [ "${current%%.*}" = "$pin_major" ]
+}
 wait_for_lock() {
   waited=0
   while [ -d "$home/.install.lock" ] && [ "$waited" -lt 1200 ]; do sleep 0.1; waited=$((waited + 1)); done
@@ -187,7 +199,7 @@ if [ "$background" = 1 ] && [ -f "$self" ]; then
   [ "$modify_path" = 0 ] && set -- "$@" --no-modify-path
   [ "$force" = 1 ] && set -- "$@" --force
   nohup sh "$self" "$@" >"$home/install.log" 2>&1 </dev/null &
-  emit_context "$INSTALLING_LINE"
+  if engine_usable; then emit_context "$READY_LINE"; else emit_context "$INSTALLING_LINE"; fi
   exit 0
 fi
 

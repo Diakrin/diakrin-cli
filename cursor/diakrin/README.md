@@ -25,7 +25,7 @@ What the agent starts: connect, create, save, publish. What Diakrin does after a
 
 The MCP server already sends the builder instructions and the `create-app`, `continue-app`, `improve-app` and `share-app` prompts; the skill never duplicates or contradicts them. Apps run only in Preview and Production. An employee can change only the apps they own (`APP_OWNERSHIP_REQUIRED` otherwise); IT keeps infrastructure, policy and approvals. Builds and business data stay in the company cloud. Every tool the skill names is listed in [references/tool-contract.json](references/tool-contract.json); servers without the draft tools are covered in [references/legacy-tools.md](references/legacy-tools.md).
 
-Diakrin's local engine (the Diakrin CLI 1.0.1 at `~/.diakrin/bin/diakrin`) is installed and kept updated by this plugin; see [references/cli.md](references/cli.md). It never signs in: Diakrin is reached only through the MCP tools, and the engine moves code with one-use transfers from `app.code.transfer`.
+Diakrin's local engine (the Diakrin CLI 1.0.2 at `~/.diakrin/bin/diakrin`) is installed and kept updated by this plugin; see [references/cli.md](references/cli.md). It never signs in: Diakrin is reached only through the MCP tools, and the engine moves code with one-use transfers from `app.code.transfer`.
 
 ## Requirements
 

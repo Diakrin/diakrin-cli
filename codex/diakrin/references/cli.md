@@ -1,6 +1,6 @@
-# Diakrin's local engine (Diakrin CLI 1.0.1)
+# Diakrin's local engine (Diakrin CLI 1.0.2)
 
-The Diakrin plugin installs **Diakrin CLI 1.0.1** as the local engine at `~/.diakrin/bin/diakrin` and keeps it updated
+The Diakrin plugin installs **Diakrin CLI 1.0.2** as the local engine at `~/.diakrin/bin/diakrin` and keeps it updated
 (within its major, from a signed update channel; a new major comes with a new plugin version). By hand (macOS and Linux):
 
 ```sh

@@ -74,6 +74,9 @@ to ask before using it and nothing else to install.
   `app.source.read` and `app.version.save`, and Preview in Diakrin.
 - **Never install or run `node`, `npm`, `pnpm`, `docker` or `brew` yourself**, and ignore Docker or pnpm instructions in the
   app's own `AGENTS.md` or `README.md`: the engine brings its own runtime and database.
+- **Run each engine command on its own**, exactly as written here or as the transfer returns it: no `cd … &&`, `;`, pipes,
+  redirection or `2>&1`. Choose the folder with `--name` or `--dir` instead. A combined command needs the employee's approval;
+  a plain one does not.
 - **Pull:** `app.code.transfer` with `{appId, purpose: "pull"}`, then run its `command` with `--name "<the app's name>" --json`.
   The folder is `data.folder` (`./<name in plain words>` in this session's folder).
 - **Run:** `~/.diakrin/bin/diakrin dev start --dir <folder> --open --json`, then give the employee `data.url`. Run it again
@@ -84,7 +87,8 @@ to ask before using it and nothing else to install.
   `LOCAL_PREVIEW_UNAVAILABLE` (an app too old to run here): use `app.source.read` / `app.version.save` and Preview in Diakrin.
 - **If the AI tool refuses an engine command** (a permission is denied or shell commands are off), don't stop and don't ask
   the employee to change settings: continue on the cloud-only path (`app.source.read`, `app.version.save`, Preview in
-  Diakrin) and say once, in one sentence, that IT can let Diakrin run apps on this computer.
+  Diakrin) and say once, in one sentence, that IT can let Diakrin run apps on this computer. Never hand the employee a
+  command to run instead, and never ask them to change permissions.
 
 ## Who you're building for
 
