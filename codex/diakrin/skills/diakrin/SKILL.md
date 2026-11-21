@@ -64,8 +64,11 @@ The Diakrin plugin keeps Diakrin's local engine on this computer at `~/.diakrin/
 into a folder, runs it with sample data, checks it and saves it back. IT approved it with the plugin, so there is nothing
 to ask before using it and nothing else to install.
 
-- Always call it by that absolute path with `--json`, and never show the employee a command, a path, a version or a token.
-- **If it is missing** (the session's context says it is being set up, or `~/.diakrin/bin/diakrin` does not exist), run the
+- Always call it by that absolute path with `--json`, and never show the employee a command, a path, a version or a token,
+  not even to stop the app: when they want it stopped, run `dev stop` yourself.
+- **Don't check the engine first.** No `ls`, `which`, `--version` or `doctor` before the first step: get the transfer and run
+  the pull. The session's context already says whether the engine is ready, and a check is one more prompt for the employee.
+- **If it is missing** (the session's context says it is being set up, or the pull says `~/.diakrin/bin/diakrin` is not found), run the
   plugin's own installer once and wait: `sh "<this plugin's folder>/engine/install.sh" --pin-file "<this plugin's folder>/engine/engine.env" --if-needed --wait`.
   If the context says the engine is **not available on this computer** (or the installer says so), use the cloud-only path:
   `app.source.read` and `app.version.save`, and Preview in Diakrin.
@@ -74,11 +77,14 @@ to ask before using it and nothing else to install.
 - **Pull:** `app.code.transfer` with `{appId, purpose: "pull"}`, then run its `command` with `--name "<the app's name>" --json`.
   The folder is `data.folder` (`./<name in plain words>` in this session's folder).
 - **Run:** `~/.diakrin/bin/diakrin dev start --dir <folder> --open --json`, then give the employee `data.url`. Run it again
-  after changes; `dev logs --dir <folder> --json` when it breaks.
+  after changes; `dev logs --dir <folder> --json` when it breaks; `dev stop --dir <folder> --json` when they are done.
 - **Check:** `~/.diakrin/bin/diakrin check --dir <folder> --json` (contract rules, typecheck, tests, render check).
 - **Save:** `app.code.transfer` with `purpose: "save"`, then its `command` with `--dir <folder> --message "<what changed>" --json`.
 - A transfer works once, for 5 minutes. `TRANSFER_INVALID`: get a new one. `TRANSFERS_UNAVAILABLE` (an older Diakrin) or
   `LOCAL_PREVIEW_UNAVAILABLE` (an app too old to run here): use `app.source.read` / `app.version.save` and Preview in Diakrin.
+- **If the AI tool refuses an engine command** (a permission is denied or shell commands are off), don't stop and don't ask
+  the employee to change settings: continue on the cloud-only path (`app.source.read`, `app.version.save`, Preview in
+  Diakrin) and say once, in one sentence, that IT can let Diakrin run apps on this computer.
 
 ## Who you're building for
 
@@ -204,6 +210,10 @@ becomes an access request, attachments become `ctx.files`, and a key the app nee
 secret its owner enters (see _The app's data, files and secrets_). Save a confirmed `name`, `purpose`
 or `firstVersion` outline with `app.draft.update` (current `expectedRevision`, an optional key). No
 separate "approve the brief" step: the request to create the app authorizes a private Preview.
+If the draft says `sketchNeeded`, write a sketch of the first screen with 3 to 6 made-up rows in the
+person's words, and save it with `app.draft.update` (`sketch`: screens, kpis, columns, rows, statusTones,
+pins, ideas). It is only a picture for their app page, never the app: no real names or records, links,
+email addresses, markup or keys, or Diakrin refuses it with `SKETCH_REJECTED`.
 
 **The server's own questions come first.** `app.draft.create`, `app.draft.get` and
 `app.draft.update` return `questions`, each with `prompt`, `choices`, a `recommendation` and
